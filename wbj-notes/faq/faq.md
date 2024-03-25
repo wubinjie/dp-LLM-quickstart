@@ -6,6 +6,57 @@
 
 注意升级到Ubuntu 22.04 版本， 使用 cuda toolkit 最新版本（12.4）直接安装驱动。
 
+### Python 软件环境安装
+#### 下载 miniconda  
+
+在这个页面中 https://docs.anaconda.com/free/miniconda/ ， 下载 https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+然后 执行这个脚本， 可以直接将 miniconda 安装到 root 账号中。按提示逐步执行。
+
+#### 创建python3.11虚拟环境
+
+```shell
+conda create -n py311 python=3.11
+```
+
+注意以后每次进入命令行都要激活 环境 
+```shell
+conda activate py311
+```
+
+#### 在 py311 下 安装 jupyter lab 
+
+```shell 
+pip3.11 install jupyterlab
+```
+
+#### 在 py311 下安装课程所需的 依赖包
+
+```shell
+# 进入课程代码所在目录 . 根据自己的目录结构改变命令 
+cd ~/code/dp-llm-quickstart/
+pip3.11 install -r requirements.txt
+```
+
+
+#### (Optional) 设置可以远程访问 jupyter lab
+
+```shell
+# 生成配置文件
+jupyter lab --generate-config
+
+# 修改配置文件中的 IP 地址， 为  ”局域网IP地址“ 
+vim ~/.jupyter/jupyter_lab_config.py
+
+# 找到 c.ServerApp.ip = 'localhost' 
+# 这一行， 修改为  c.ServerApp.ip = '192.168.0.222'
+```
+
+#### 启动 jupyter lab 
+```shell
+nohup jupyter lab --allow-root > jupyterlab.log 2>&1 &
+```
+
+
 ## 2. 教程代码链接
 https://github.com/DjangoPeng/LLM-quickstart
 
