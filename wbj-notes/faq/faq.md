@@ -106,6 +106,13 @@ yum remove xorg-x11-drv-nvidia\* kmod-nvidia\*
 1. 增大 logging_step ，避免频繁的记录 checkpoint 
 2. 训练失败时，使用 trainer.train(resume_from_checkpoint=True) 从检查点恢复训练
 
+## 13. 华为云折扣申请相关问题 
+
+查看腾讯文档。 假如打不开，有可能贵司封杀了腾讯文档。可以用手机热点连接。
+
+https://docs.qq.com/doc/DZUFHWFVpWnN6T0lP
+
+
 
 
 
